@@ -1,7 +1,6 @@
 [db]
-12.16.56.101
+12.16.56.101 apache_package=httpd php_package=php
 
 [web]
-12.16.56.102
-12.16.56.103
-
+12.16.56.102 apache_package=apache2 php_package=libapache2-mod-php
+12.16.56.103 apache_package=apache2 php_package=libapache2-mod-php
