@@ -1,13 +1,35 @@
 ---
 
-- hosts: all
+- hosts: web
   become: true
   tasks:
 
   - name: install apache&php packages
+    tags: ubuntu,web
     package:
       name: 
         - "{{ apache_package }}"
         - "{{ php_package }}"
       state: latest
       update_cache: yes
+
+- hosts: db
+  become: true
+  tasks:
+
+  - name: install mariadb package on CentOS
+    tags: centos,db
+    package:
+      name: mariadb
+      state: latest
+      update_cache: yes
+    when: ansible_distribution == "CentOS"
+
+  - name: install mariadb package on Ubuntu
+    tags: ubuntu,db
+    apt:
+      name: mariadb-server
+      state: latest
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+
