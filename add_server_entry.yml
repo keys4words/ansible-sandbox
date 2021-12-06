@@ -1,0 +1,9 @@
+-
+        name: 'Add name server entry if not already entered'
+        hosts: alb
+        tasks:
+                - shell: 'cat /etc/resolv.conf'
+                  register: command_output
+                
+                - shell: 'echo "nameserver 10.10.10.86" >> /etc/resolv.conf'
+                  when: 'command_output.stdout.find("10.10.10.86") == -1'
