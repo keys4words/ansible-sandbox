@@ -1,0 +1,11 @@
+-
+  name: Play 1
+  hosts: web
+  tasks:
+    - name: Start DB service
+      service: name=postgresql state=started
+
+    - name: Start the httpd service
+      service:
+        name: httpd
+        state: started
