@@ -1,0 +1,12 @@
+-
+  name: 'Adult or child'
+  hosts: hostOne
+  vars:
+    age: 25
+  tasks:
+    -
+      command: 'echo "I am a child"'
+      when: 'age < 18'
+    -
+      command: 'echo "I am an adult"'
+      when: 'age >= 18'
