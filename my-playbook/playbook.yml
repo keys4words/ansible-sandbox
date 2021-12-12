@@ -1,0 +1,8 @@
+- name: Install and configure mysql
+  hosts: db-servers, group1, group*
+
+  # to create role folder structure cd to roles
+  # and make command ansible-galaxy init <role_name>
+  # or use default role destination /etc/ansible/roles
+  roles:
+    - mysql
