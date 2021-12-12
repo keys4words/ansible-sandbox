@@ -1,0 +1,37 @@
+-
+  name: create user & view config file
+  hosts: localhost
+  tasks:
+    - user: name='{{ item }}' state=present
+      with_items:
+        - alex
+        - andrew
+        - axel
+
+    - debug: var=item
+      with_file:
+        - "/etc/hosts"
+        - "/etc/resolv.conf"
+        - "/etc/ntp.conf"
+
+-
+  name: install required packages
+  hosts: web
+  vars:
+    packages:
+      - httpd
+      - binutils
+      - glibc
+      - ksh
+      - libaio
+      - libXext
+      - gcc
+      - make
+      - sysstat
+      - unixODBC
+      - mongodb
+      - nodejs
+      - grunt
+  tasks:
+    - yum: 'name={{ item }} state=present'
+      with_items: '{{ packages }}'

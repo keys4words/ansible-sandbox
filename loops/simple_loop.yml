@@ -13,3 +13,8 @@
         - jason
         - jack
         - joe
+    - user: name='{{ item.name }}' state=present uid='{{ item.uid }}''
+      loop:
+        - name: jess
+          uid: 1010
+        - { name: jose, uid: 1020 }
