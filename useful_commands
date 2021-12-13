@@ -1,0 +1,8 @@
+# 4 playbook
+ansible-playbook playbook.yml --check
+ansible-playbook playbook.yml --start-at-task "<name of task>"
+ansible-playbook playbook.yml --tags "ubuntu"
+ansible-playbook playbook.yml --skip-tags "centos"
+
+# to create role's folder structure
+ansible-galaxy init <role_name>
