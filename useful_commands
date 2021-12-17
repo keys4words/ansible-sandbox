@@ -1,3 +1,7 @@
+# privilege escalation
+ansible-playbook --become --become-method=doas --become-user=nginx --ask-become-pass # ad-hoc
+lamp-dev1 ansible_host=172.10.10.100 ansible_user=admin ansible_become=yes ansible_become_user=nginx # in inventory
+
 # 4 playbook
 ansible-playbook playbook.yml --check
 ansible-playbook playbook.yml --start-at-task "<name of task>"
