@@ -6,3 +6,9 @@
       lineinfile:
         path: /etc/resolf.conf
         line: 'nameserver 10.1.250.10'
+
+    - name: Create index.html on web
+      lineinfile:
+        path: /var/www/html/index.html
+        line: 'This line was added using Ansible lineinfile module!'
+        create: yes
