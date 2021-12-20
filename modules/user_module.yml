@@ -24,3 +24,15 @@
         owner: root
         group: root
         mode: 0440
+
+  - name: create group admin
+    group: name='admin' state=present
+
+  - name: create user admin 
+    user: name='admin' uid=2048 group='admin'
+
+  ---
+- hosts: all
+  tasks:
+    - user: name='admin' state=absent
+    - group: name='admin' state=absent
