@@ -47,7 +47,7 @@
       shell: mysql -f < /tmp/db-load-script.sql
 
 - name: Deploy on web-servers
-  hosts: lamp-web
+  hosts: lampweb
   become: yes
   tasks:
     - name: Install httpd php
