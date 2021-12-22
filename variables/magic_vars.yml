@@ -1,0 +1,9 @@
+---
+- name: Print dns server
+  hosts: all
+  tasks:
+    - debug:
+        msg: `{{ hostvars['web2'].dns_server }}`
+        msg: `{{ groups['americas'] }}`
+        msg: `{{ group_names }}`
+        msg: `{{ inventory_hostname }}`
