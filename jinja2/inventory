@@ -1,0 +1,4 @@
+[web_servers]
+web1 ansible_host=171.10.10.1
+web2 ansible_host=171.10.10.2
+web3 ansible_host=171.10.10.3
