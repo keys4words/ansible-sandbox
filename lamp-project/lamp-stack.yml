@@ -23,7 +23,7 @@
         state: installed
 
     - name: Create mysql config
-      copy: src=files/my.cnf dest=/etc/my.cnf
+      template: src=templates/my.cnf.j2 dest=/etc/my.cnf
 
     - name: Start mariadb service
       service: name=mariadb state=started enabled=yes
@@ -38,10 +38,10 @@
       mysql_db: name={{ dbname }} state=present
 
     - name: Create DB user
-      mysql_user: name= {{ dbuser }} password={{ dbpassword }} priv=*.*:ALL host='172.20.1.100' state=present
+      mysql_user: name= {{ dbuser }} password={{ dbpassword }} priv=*.*:ALL host={{ ansible_host }} state=present
 
     - name: Move populate script to db host
-      copy: src=files/db-load-script.sql dest=/tmp/db-load-script.sql
+      template: src=templates/db-load-script.sql.j2 dest=/tmp/db-load-script.sql
 
     - name: Populate DB
       shell: mysql -f < /tmp/db-load-script.sql
@@ -81,4 +81,4 @@
       git: repo={{ repository }} dest=/var/www/html/  force=yes
 
     - name: Creates the index.php file
-      copy: src=files/index.php dest=/var/www/html/index.php
+      template: src=templates/index.php.j2 dest=/var/www/html/index.php
