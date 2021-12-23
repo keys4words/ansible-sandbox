@@ -1,0 +1,2 @@
+{{ "/etc/hosts" | basename }}
+{{ "c:\windows\hosts" | win_basename(win_splitdrive) | first(last) }}

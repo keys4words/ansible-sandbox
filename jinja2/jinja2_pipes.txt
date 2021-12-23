@@ -1,0 +1,14 @@
+# jinja2 pipes
+The name is {{ agent_name | upper(lower/title) | replace("Bond", "Bourne") | wordcount }}
+The name is {{ agent_name | default("Shon")}}
+
+{{ [1,2,3,2] | min(max/unique/last)}}
+{{ [1,2,3] | union([4,5] | intersect([2,4]))}}
+{{ 100 | random }}
+{{ ["The", "name", "is", "different"] | join("->")}}
+
+{% for el in [0, 2, 4, 6] %}
+  {% if el > 3 %}
+    {{ el }}
+  {% endif %}
+{% endfor %}
