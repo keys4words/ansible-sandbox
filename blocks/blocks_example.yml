@@ -1,0 +1,31 @@
+---
+- hosts: sever1
+  tasks:
+    - block:
+        - name: Install MySQL
+          yum: name=mysql-server state=present
+        - name: Start MySQL service
+          service: name=mysql-server state=started
+
+      become_user: db-user
+      when: ansible_facts['distribution'] == 'CentOS'
+
+      rescue:
+        - mail:
+            to: admin@crazy.com
+            subject: installation failed
+            body: DB install failed at {{ ansible_failed_task.name }}
+      always:
+        - mail:
+            to: admin@crazy.com
+            subject: installation status
+            body: DB install status - {{ ansible_failed_result }}
+
+    - block:
+        - name: Install nginx
+          yum: name=nginx state=present
+        - name: Start nginx service
+          service: name=nginx state=started
+
+      become_user: web-user
+      when: ansible_facts['distribution'] == 'CentOS'
