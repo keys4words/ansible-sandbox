@@ -1,0 +1,20 @@
+- name: Deploy web apps
+  hosts: server1, server2, server3
+  any_errors_fatal: true
+  tasks:
+    - name: Install dependencies
+      block:
+        - name: Install MySQL DB
+          << code hidden >>
+        - name: Start MySQL service
+          << code hidden >>
+        - name: Install Flask dependencies
+          << code hidden >>
+        - name: Run web-server
+          << code hidden >>
+
+      rescue:
+        - mail:
+            to: admin@mail.com
+            subject: Playbook failed
+            body: Web server configuration failed

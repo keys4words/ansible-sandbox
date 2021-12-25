@@ -1,0 +1,19 @@
+- name: Deploy web apps
+  hosts: server1, server2, server3
+  any_errors_fatal: true
+  tasks:
+    - name: Install dependencies
+      << code hidden >>
+    - name: Install MySQL DB
+      << code hidden >>
+    - name: Start MySQL service
+      << code hidden >>
+    - name: Install Flask dependencies
+      << code hidden >>
+    - name: Run web-server
+      << code hidden >>
+    - mail:
+        to: admin@mail.com
+        subject: Server configured
+        body: Web server has been configured
+      ignore_errors: yes
