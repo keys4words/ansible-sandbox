@@ -15,4 +15,4 @@
 
     - command: cat /var/log/server.log
       register: command_output
-      failed_when: 'ERROR' in command_output.stdout
+      failed_when: '"ERROR" in command_output.stdout'
