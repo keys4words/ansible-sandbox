@@ -1,0 +1,4 @@
+- name: Install Flask dependencies
+  << code hidden >>
+- name: Run web-server
+  << code hidden >>

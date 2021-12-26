@@ -1,0 +1,6 @@
+- name: Install dependencies
+  << code hidden >>
+- name: Install MySQL DB
+  << code hidden >>
+- name: Start MySQL service
+  << code hidden >>

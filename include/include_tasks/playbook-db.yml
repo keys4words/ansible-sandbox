@@ -1,0 +1,4 @@
+- name: Deploy DB server
+  hosts: db-server
+  tasks:
+    - include_tasks: tasks/db.yml

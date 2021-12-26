@@ -1,0 +1,4 @@
+- name: Deploy WEB server
+  hosts: web-server
+  tasks:
+    - include_tasks: tasks/web.yml

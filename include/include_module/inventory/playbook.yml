@@ -1,0 +1,11 @@
+- name: Deploy Web&DB server
+  hosts: web-db-servers
+  tasks:
+    - include_vars:
+        file: /opt/apps/common-data/email/info.yml
+        name: email_data
+
+    - mail:
+        to: {{ email_data.admin_email }}
+        subject: Service alert
+        body: httpd service is down
