@@ -20,15 +20,9 @@
 - name: Create DB
   mysql_db: name={{ dbname }} state=present
 
-- name: gather facts from lampweb
-  setup:
-  delegate_to: "{{ item }}"
-  delegate_facts: True
-  with_items: "{{ hostvars[groups['web_servers'][0]].groups.web_servers }}"
-
 - name: Create Application DB User
   tags: Create Application DB User
-  mysql_user: name={{ dbuser }} password={{ dbpassword }} priv=*.*:ALL host={{ hostvars['lampweb']['ansible_facts']['eth0']['ipv4']['address'] }} state=present
+  mysql_user: name={{ dbuser }} password={{ dbpassword }} priv=*.*:ALL host='172.20.1.100' state=present
 
 - name: Move populate script to db host
   template: src=templates/db-load-script.sql.j2 dest=/tmp/db-load-script.sql

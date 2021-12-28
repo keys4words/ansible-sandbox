@@ -2,17 +2,23 @@
 - name: Deploy lamp stack apps
   hosts: all
   become: yes
-  tasks:
-    - include_tasks: tasks/common.yml 
+  roles:
+    - common
+  #tasks:
+  #  - include_tasks: tasks/common.yml 
 
 - name: Deploy db on db-servers
   hosts: lamp-db
   become: yes
-  tasks:
-    - include_tasks: tasks/db.yml
+  roles:
+    - mysql
+  #tasks:
+  #  - include_tasks: tasks/db.yml
 
 - name: Deploy on web-servers
   hosts: lampweb
   become: yes
-  tasks:
-    - include_tasks: tasks/web.yml
+  roles:
+    - httpd-php
+  #tasks:
+  #  - include_tasks: tasks/web.yml

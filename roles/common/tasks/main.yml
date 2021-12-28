@@ -5,3 +5,5 @@
       - libsemanage-python
       - firewalld
     state: installed
+
+# tasks file for roles/common
