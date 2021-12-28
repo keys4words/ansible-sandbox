@@ -22,9 +22,9 @@
 
 - name: gather facts from lampweb
   setup:
-    delegate_to: "{{ item }}"
-    delegate_facts: True
-    with_items: "{{ hostvars[groups['web_servers'][0]].groups.web_servers }}"
+  delegate_to: "{{ item }}"
+  delegate_facts: True
+  with_items: "{{ hostvars[groups['web_servers'][0]].groups.web_servers }}"
 
 - name: Create Application DB User
   tags: Create Application DB User
