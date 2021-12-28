@@ -1,0 +1,15 @@
+-
+  name: Play 1
+  hosts: web1
+  roles:
+    - geerlingguy.mysql
+    - nginx
+
+- 
+  name: Play 2
+  hosts: web2
+  roles:
+    - role: geerlingguy.mysql
+      become: yes
+      vars:
+        mysql_user_name: db-user

@@ -1,0 +1,14 @@
+# to create role's folder structure
+ansible-galaxy init <role_name>
+
+# to find role
+ansible-galaxy search <role_name>
+
+# to install role in roles folder
+ansible-galaxy install geerlingguy.mysql -p ./roles
+
+# show installed roles
+ansible-galaxy list
+
+# 
+ansible-config dump | grep ROLE

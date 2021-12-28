@@ -1,0 +1,7 @@
+project-folder
+  playbook.yml
+  roles
+    mysql # ansible-galaxy init mysql
+    
+# in ansible.cfg by default
+roles_path = /etc/ansible/roles
