@@ -12,3 +12,6 @@ ansible-playbook playbook.yml --skip-tags "centos"
 ansible-config list # List all configurations
 ansible-config view # Shows the current config file
 ansible-config dump # shows the current settings
+
+# dynamic inventory
+ansible-inventory -i inventory.py
