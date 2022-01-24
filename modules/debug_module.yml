@@ -1,7 +1,7 @@
 ---
 - name: Print hello message
   hosts: all
-  gather_facts: no
+  gather_facts: no  # don't show ansible facts or use gathering = explicit in ansible.cfg
   tasks:
     - debug:
-        var: ansible_facts
+        var: ansible_facts  # show all ansible facts
