@@ -1,8 +1,13 @@
 ---
-- name: Install web on CentOS
+- name: Install pkgs on CentOS
   hosts: web1
   tasks:
-    - yum: name=httpd stated=installed
+    - name: Install web on CentOS
+      yum: name=httpd stated=installed
+    - name: Install latest version of sudo
+      yum: name=sudo state=latest
+    - name: Downgrade version of vsftpd
+      yum: name=vsftpd-2.2.2 state=present allow_downgrade=yes
 
 - name: Install web on Ubuntu
   hosts: web2
