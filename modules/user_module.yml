@@ -14,6 +14,7 @@
     tags: always
     authorized_key:
         user: simone
+        state: present
         key: ""
 
   - name: add sudoers file for simone

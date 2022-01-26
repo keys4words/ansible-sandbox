@@ -1,0 +1,8 @@
+---
+- hosts: all
+  tasks:
+    - name: Create Filesystem
+      filesystem:
+        fstype: ext4
+        dev: /dev/vg1/lvol1
+        opts: -cc

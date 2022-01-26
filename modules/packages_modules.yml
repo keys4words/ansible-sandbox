@@ -1,0 +1,15 @@
+---
+- name: Install web on CentOS
+  hosts: web1
+  tasks:
+    - yum: name=httpd stated=installed
+
+- name: Install web on Ubuntu
+  hosts: web2
+  tasks:
+    - apt: name=apache2 state=installed
+
+- name: Install web on any host
+  hosts: all
+  tasks:
+    - package: name=httpd state=installed

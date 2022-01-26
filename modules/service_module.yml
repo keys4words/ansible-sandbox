@@ -3,9 +3,10 @@
   hosts: web
   tasks:
     - name: Start DB service
-      service: name=postgresql state=started
+      service: name=postgresql state=started enabled=yes
 
     - name: Start the httpd service
       service:
         name: httpd
         state: started
+        enabled: yes

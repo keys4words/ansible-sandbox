@@ -1,9 +1,9 @@
 ---
-- name: Zip archive opt.zip
+- name: Compress a folder /web to archive opt.zip
   hosts: web1
   tasks:
     - archive:
-        path: /opt
+        path: /opt/web
         dest: /root/opt.zip
         format: zip
 

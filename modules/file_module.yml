@@ -3,5 +3,8 @@
   tasks:
     - name: create file perm.txt
       file: path=/opt/data/perm.txt mode=0640 state=touch
-~                                                                                                  
-~      
+    
+    - name: create folder
+      file:
+        path: /opt/app/web
+        state: directory
