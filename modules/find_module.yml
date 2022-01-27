@@ -1,7 +1,7 @@
 ---
 - hosts: web1
   tasks:
-    - name: Find files
+    - name: Find files older 2 minutes with size > 1Mb recursive in folder /opt/data
       find:
         paths: /opt/data
         age: 2m
