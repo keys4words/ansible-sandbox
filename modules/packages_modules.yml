@@ -3,7 +3,7 @@
   hosts: web1
   tasks:
     - name: Install web on CentOS
-      yum: name=httpd stated=installed
+      yum: name=httpd state=installed
     - name: Install latest version of sudo
       yum: name=sudo state=latest
     - name: Downgrade version of vsftpd
