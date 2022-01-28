@@ -17,3 +17,10 @@
           - /var/log/lastlog
         dest: /root/files.tar.bz2
         format: bz2
+
+    - name: Archive folder /opt to /root/opt.zip
+      archive:
+        path:
+          - /opt
+        dest: /root/opt.zip
+        format: zip
