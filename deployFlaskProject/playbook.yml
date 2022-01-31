@@ -1,0 +1,7 @@
+---
+- name: apply local configuration to servers
+  hosts: all
+  user: root
+  roles:
+    - common
+    

@@ -1,0 +1,8 @@
+- name: Create group 
+  group: name="deployers" state=present
+
+- name: Create non-root user
+  user: name="deployer" group="deployers" shell="/bin/bash" state=present
+
+- name: Add authorized key for deployer
+  authorized_key: user="deployer" state=present key="{{ lookup('file', './first_playbook.pub' }}"
