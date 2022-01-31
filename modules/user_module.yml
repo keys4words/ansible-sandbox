@@ -30,7 +30,7 @@
     group: name='admin' state=present
 
   - name: create user admin 
-    user: name='admin' uid=2048 group='admin'
+    user: name='admin' uid=2048 group='admin' expires=1704067199
 
   ---
 - hosts: all
