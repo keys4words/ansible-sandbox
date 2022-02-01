@@ -3,10 +3,10 @@
   hosts: all
   tasks:
     - shell: cat /etc/hosts
-      register: result
+      register: result  # execute a task and save returned value in a variable to use in the task later
 
     - debug:
-      var: result.stdout
+      var: result.stdout  # result.stdout/result.stderr.result.rc
 
 - name: Play2
   hosts: all

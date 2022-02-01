@@ -1,0 +1,13 @@
+# from low to high priority
+- role defaults
+- host vars
+- group vars
+- play vars
+- role vars
+- extra vars   # ansible-playbook playbook.yml --extra-vars "dns_server=10.5.5.1"
+
+
+# vars scope
+- host scope
+- plays scope
+- global scope # --extra-vars
