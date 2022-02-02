@@ -3,5 +3,8 @@
   hosts: all
   gather_facts: no  # don't show ansible facts or use gathering = explicit in ansible.cfg
   tasks:
+    - name: Printing a message with variable
+      debug: msg="The host name is: {{ inventory_hostname }}"
+      
     - debug:
         var: ansible_facts  # show all ansible facts

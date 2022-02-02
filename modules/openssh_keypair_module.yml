@@ -1,0 +1,10 @@
+---
+- hosts: web1
+  tasks:
+    - name: generate ssh-key
+      openssh_keypair:
+        path: /tmp/usr
+        type: rsa
+        size: 4096
+        state: present
+        force: no
