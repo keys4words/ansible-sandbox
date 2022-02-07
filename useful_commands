@@ -7,10 +7,19 @@ ansible-playbook --become --become-method=doas --become-user=nginx --ask-become-
 lamp-dev1 ansible_host=172.10.10.100 ansible_user=admin ansible_become=yes ansible_become_user=nginx # in inventory
 
 # 4 playbook
-ansible-playbook playbook.yml --check
+ansible-playbook playbook.yml --check/-C
 ansible-playbook playbook.yml --start-at-task "<name of task>"
-ansible-playbook playbook.yml --tags "ubuntu"
+ansible-playbook playbook.yml --tags/-t "ubuntu"
 ansible-playbook playbook.yml --skip-tags "centos"
+-i : which inventory file to use
+-l : limit the play to specific servers
+-u : specific user 
+-k : to pass the pass
+-K : to pass the pass for elevation of privileges
+--syntax-check
+-e : to specify a variable value
+-f : set fork number
+
 
 # view configuration
 ansible-config list # List all configurations
