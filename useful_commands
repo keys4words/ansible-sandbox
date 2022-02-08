@@ -12,6 +12,8 @@ ansible-playbook playbook.yml --start-at-task "<name of task>"
 ansible-playbook playbook.yml --tags/-t "ubuntu"
 ansible-playbook playbook.yml --skip-tags "centos"
 -i : which inventory file to use
+-u : which user on target servers
+-b : for elevation of privileges
 -l : limit the play to specific servers
 -u : specific user 
 -k : to pass the pass
@@ -19,6 +21,7 @@ ansible-playbook playbook.yml --skip-tags "centos"
 --syntax-check
 -e : to specify a variable value
 -f : set fork number
+-v : verbose mode
 
 
 # view configuration
