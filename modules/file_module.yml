@@ -7,4 +7,29 @@
     - name: create folder
       file:
         path: /opt/app/web
+        state: directory  #absent/file/hard/touch (file- check if the file is present)
+        owner: root
+      become: yes
+
+    - name: create a path
+      file:
+        path: /tmp/app/1/2/3/4
+        recurse: yes
         state: directory
+        owner: user
+        group: user
+        mode: 0755
+
+    - name: create a symlink
+      file:
+        src: /tmp/app/1/2/3/4/
+        dest: /tmp/symlink
+        state: link
+        owner: user
+        owner: user
+        mode: 0755
+
+    - name: remove a file
+      file:
+        path: /opt/data/perm.txt
+        state: absent

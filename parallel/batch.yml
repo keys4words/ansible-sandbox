@@ -1,6 +1,6 @@
 - name: Deploy web apps
   hosts: server1, server2, server3, server4, server5
-  serial: 3
+  serial: 3 # use default linear strategy for 3 servers at once
   tasks:
     - name: Install dependencies
       << code hidden >>
