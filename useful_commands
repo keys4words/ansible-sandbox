@@ -34,3 +34,18 @@ ansible-inventory -i inventory/ -y  # -y yaml output format
 
 # dynamic inventory
 ansible-inventory -i inventory.py
+
+# to create role's folder structure
+ansible-galaxy init <role_name_with_path>
+
+# to find role in galaxy
+ansible-galaxy search <role_name>
+
+# to install role in roles folder
+ansible-galaxy install geerlingguy.mysql -p ./roles
+
+# show installed roles
+ansible-galaxy list
+
+# show path to install role
+ansible-config dump | grep ROLE
