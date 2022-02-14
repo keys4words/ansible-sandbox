@@ -1,0 +1,18 @@
+---
+- hosts: all
+  tasks:
+    - name: Create a file
+      file:
+        path: /tmp/keys4.txt
+        state: touch
+
+    - name: Save stat of file to var
+      stat: path=/tmp/keys4.txt
+      register: keys4_var
+
+    - name: Show file exists
+      debug: var=keys4_var.stat.exists
+
+    - name: To do smt when file unexists
+      file: path=/tmp/folder state=directory
+      when: not keys4_var.stat.exists
