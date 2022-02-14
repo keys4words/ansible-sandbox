@@ -49,3 +49,17 @@ ansible-galaxy list
 
 # show path to install role
 ansible-config dump | grep ROLE
+
+# ansible vault
+ansible-vault encrypt inventory   # encrypt inventory
+ansible-vault create inventory
+ansible-vault decrypt <file> --vault-password-file 
+ansible-vault view inventory      # view encrypted inventory
+ansible-vault rekey encrypted-file
+
+ansible-playbook -i inventory playbook.yml --ask-vault-pass
+ansible-playbook -i inventory playbook.yml --vault-password-file ~./vault_pass.txt
+ansible-playbook -i inventory playbook.yml --vault-password-file ~./vault_pass.py
+
+
+# chmod 640 for file
