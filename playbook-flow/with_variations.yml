@@ -35,3 +35,14 @@
   tasks:
     - yum: 'name={{ item }} state=present'
       with_items: '{{ packages }}'
+
+    - name: Create dirs & files into dirs
+      file:
+        path: /tmp/{{ item.dir }}/{{ item.file }}
+        state: touch
+        # recurse: yes
+      with_items:
+        - { dir: "dirOne", file: "one.txt"}
+        - { dir: "dirTwo", file: "two.txt"}
+        - { dir: "dirThree", file: "three.txt"}
+        - { dir: "dirFour", file: "four.txt"}
