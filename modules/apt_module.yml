@@ -1,0 +1,15 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Update the cache
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: Install haproxy
+      apt:
+        name: haproxy
+        state: present  # absent/latest
+        update_cache: yes
+        cache_valid_time: 60
