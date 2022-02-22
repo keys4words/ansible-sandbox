@@ -1,0 +1,5 @@
+---
+- hosts: all
+  tasks:
+    - name: local action - need ssh connection
+      local_action: "command touch /tmp/text.txt"

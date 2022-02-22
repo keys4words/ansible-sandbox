@@ -1,0 +1,8 @@
+---
+- hosts: all
+  tasks:
+    - name: Create files on controller
+      file:
+        state: touch
+        path: "/tmp/{{ inventory_hostname }}.txt"
+      delegate_to: contoller
