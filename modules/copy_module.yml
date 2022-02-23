@@ -1,0 +1,28 @@
+---
+- hosts: all
+  tasks:
+    - name: copy file from controller to hosts
+      copy: src=test.txt dest=/tmp/test.txt
+
+    - name: recursive copy folder to hosts
+      copy: src=tmp/ dest=/tmp/
+
+    - name: Move files from controller to hosts
+      copy:
+        src: /home/mydir/
+        dest: /tmp/
+        remote_src: yes
+
+    - name: copy by file pattern
+      copy:
+        src: "{{ item }}"
+        dest: /tmp/
+      with_fileglob:
+        - *test?.txt
+
+    - name: copy file with content
+      copy: |
+        Hi,
+        devops team!!!
+        We are on {{ ansible_hostname }}
+      dest: /tmp/greeting.txt
