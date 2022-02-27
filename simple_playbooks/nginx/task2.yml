@@ -1,7 +1,7 @@
 ---
 - hosts: node01
   tasks:
-    - name: remove httpd and php packages
+    - name: install httpd and php packages
       yum:
         name: httpd, php
         state: present
