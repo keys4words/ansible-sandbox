@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  connection: local
+  roles:
+    - ssh_keygen
+
+- hosts: all
+  become: yes
+  roles:
+    - manage_user
+    - nginx_webserver
