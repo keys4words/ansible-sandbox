@@ -1,0 +1,12 @@
+---
+- hosts: all
+  tasks:
+    - name: test unarchive
+      get_url:
+        url: https://downloads.apache.org/tomcat/tomcat-9/v9.0.41/src/apache-tomcat-9.0.41-src.tar.gz
+        dest: /opt/tomcat8
+        mode: 0755
+        checksum: sha512:094e7cbd2519a4b812a2ca865f92802ece3385a20826c5e29b5f7cda8b9265d01ede6f598999f8aa2f1b04bcaca2e67e3f0132781b3f22007356df49ab6b1838
+        validate_certs: no
+        group: oki
+        owner: oki
