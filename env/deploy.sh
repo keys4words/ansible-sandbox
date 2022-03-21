@@ -54,7 +54,7 @@ createNodes() {
 	docker exec -ti $USER-debian-$i /bin/sh -c "chmod 600 ${HOME}/.ssh/authorized_keys && chown $USER:$USER $HOME/.ssh/authorized_keys"
 		docker exec -ti $USER-debian-$i /bin/sh -c "echo '$USER   ALL=(ALL) NOPASSWD: ALL'>>/etc/sudoers"
 		docker exec -ti $USER-debian-$i /bin/sh -c "service ssh start"
-		echo "Conteneur $USER-debian-$i créé"
+		echo "Container $USER-debian-$i created"
 	done
 	infosNodes	
 
@@ -80,12 +80,12 @@ createAnsible(){
 	echo ""
   	ANSIBLE_DIR="ansible_dir"
   	mkdir -p $ANSIBLE_DIR
-  	echo "all:" > $ANSIBLE_DIR/00_inventory.yml
-	echo "  vars:" >> $ANSIBLE_DIR/00_inventory.yml
-    echo "    ansible_python_interpreter: /usr/bin/python3" >> $ANSIBLE_DIR/00_inventory.yml
-  echo "  hosts:" >> $ANSIBLE_DIR/00_inventory.yml
+  	echo "all:" > $ANSIBLE_DIR/inventory.yml
+	echo "  vars:" >> $ANSIBLE_DIR/inventory.yml
+    echo "    ansible_python_interpreter: /usr/bin/python3" >> $ANSIBLE_DIR/inventory.yml
+  echo "  hosts:" >> $ANSIBLE_DIR/inventory.yml
   for container in $(docker ps -a | grep $USER-debian | awk '{print $1}');do      
-    docker inspect -f '    {{.NetworkSettings.IPAddress }}:' $container >> $ANSIBLE_DIR/00_inventory.yml
+    docker inspect -f '    {{.NetworkSettings.IPAddress }}:' $container >> $ANSIBLE_DIR/inventory.yml
   done
   mkdir -p $ANSIBLE_DIR/host_vars
   mkdir -p $ANSIBLE_DIR/group_vars
